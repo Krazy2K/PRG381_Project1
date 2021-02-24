@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[Booking System] (
   [BookingNumber] [int] IDENTITY (101, 1),
   [EventType] [varchar](50) NOT NULL,
-  [EventDate] [date] NOT NULL,
-  [EventTime] [time] NOT NULL,
+  [EventDate] [varchar](50) NOT NULL,
+  [EventTime] [varchar](50) NOT NULL,
   [VenueAddress] [varchar](max) NOT NULL,
   [NumberOfKids] [int] NOT NULL,
   [NumberOfAdults] [int] NOT NULL,

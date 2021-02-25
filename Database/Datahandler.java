@@ -8,13 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class Datahandler {
 
+    //Data Source=SHAMZA-BOSS\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
     // github connection to db
     // temporary
     // still need to workout connection to sql
-    static String connectionUrl = "jdbc:sqlserver://localhost:1433;" + "database=Delicious-Catering;"
-            + "user=SHAMZA-BOSS@sqlexpress;" + "encrypt=true;" + "trustServerCertificate=false;" + "loginTimeout=30;";
+    static String connectionUrl = "jdbc:sqlserver://localhost:1433;"+"instanceName=SQLEXPRESS;" + "databaseName=Delicious-Catering;"
+            + "user=SHAMZA-BOSS@SQLEXPRESS;" + "password=;"+ "encrypt=true;" + "trustServerCertificate=false;" + "loginTimeout=30;";
 
          // String connectionUrl = "jdbc:sqlserver://yourserver.database.windows.net:1433;" + "database=dbo.Booking System;"
         //         + "user=yourusername@yourserver;" + "password=yourpassword;" + "encrypt=true;"
@@ -29,13 +31,13 @@ public class Datahandler {
         ResultSet resultSet = null;
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
+        //testing that we our connection is successfull
         
             PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);) {
                 //execute sql command
             prepsInsertProduct.execute();
             // Retrieve the generated key from the insert. 
             resultSet = prepsInsertProduct.getGeneratedKeys();
-           
 
             // Print the ID of the inserted row. 
             while (resultSet.next()) {
@@ -63,6 +65,7 @@ public class Datahandler {
             PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);) {
 
             prepsInsertProduct.execute();
+            System.out.println("executing");
             // Retrieve the generated key from the insert. if null then not successfull, if 1 then successfull
             resultSet = prepsInsertProduct.getGeneratedKeys();
 
@@ -81,8 +84,10 @@ public class Datahandler {
     static void View(int BookingNumber){
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
+            
             String SQL = "SELECT * FROM dbo.Booking System WHERE BookingNumber='"+BookingNumber+"'";
             ResultSet rs = stmt.executeQuery(SQL);
+            
 
             // Iterate through the data in the result set and display it.
             while (rs.next()) {

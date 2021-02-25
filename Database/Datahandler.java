@@ -26,7 +26,7 @@ public class Datahandler {
     static void UpdateDB(int BookingNumber, String MealTypeAdults, String MealTypeKids ) {
         
 
-        String insertSql = "UPDATE dbo.Booking System SET MealTypeAdults = '"+MealTypeAdults+"', MealTypeKids = '"+MealTypeKids+"'";
+        String insertSql = "UPDATE dbo.Booking System SET MealTypeAdults = '"+MealTypeAdults+"', MealTypeKids = '"+MealTypeKids+"' WHERE BookingNumber='"+BookingNumber+"'";
 
         ResultSet resultSet = null;
 

@@ -1,13 +1,12 @@
 package BusinessLogic;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
 class Menu{
     public static void main(String[] args) {
 
-        MenuMethods menuMeth = new MenuMethods();
+        
         Scanner scan = new Scanner(System.in);
         System.out.println("1.Sign in");
         System.out.println("2.Sign up");
@@ -18,11 +17,8 @@ class Menu{
                     System.out.println("Enter your order number");
                     break;
                 case 2:
-                    ArrayList<String> personDetails = menuMeth.perDetails();
-                    String event = menuMeth.eventType();
-                    int[] attendees = menuMeth.numbAdultsKids();
-                    ArrayList<String> menuItem = menuMeth.menuDetails();
-                    String theme = menuMeth.theme();
+                    IntermediaryFile inFile = new IntermediaryFile();
+                    inFile.NewOrder();
                     break;
             }
             

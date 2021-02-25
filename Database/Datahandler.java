@@ -91,7 +91,7 @@ public class Datahandler {
 
             // Iterate through the data in the result set and display it.
             while (rs.next()) {
-                System.out.println(rs.getString("FirstName") + " " + rs.getString("LastName"));
+                System.out.println(rs.getString("BookingNumber") + " " + rs.getString("EventType")+ " " + rs.getString("EventDate")+ " " + rs.getString("EventTime")+ " " + rs.getString("VenueAddress")+ " " + rs.getString("NumberOfKids")+ " " + rs.getString("NumberOfAdults")+ " " + rs.getString("Drinks")+ " " + rs.getString("Deserts")+ " " + rs.getString("ThemeType")+ " " + rs.getString("Name")+ " " + rs.getString("Surname")+ " " + rs.getString("PhoneNumber")+ " " + rs.getString("Cost")+ " " + rs.getString("EventConfirmation"));
             }
         }
         // Handle any errors that may have occurred.

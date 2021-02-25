@@ -99,8 +99,8 @@ public class Datahandler {
             e.printStackTrace();
         }
     }
-    public static void main(String[] args){
-        //testing that we our connection is successfull
-        insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
-    }
+    // public static void main(String[] args){
+    //     //testing that we our connection is successfull
+    //     insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
+    // }
 }

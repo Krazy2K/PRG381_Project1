@@ -22,6 +22,7 @@ public class SignInPage
         // Static values for username and password (Testing purposes)
         String staticUsername = "Kevin";
         String staticPassword = "Password";
+        myScanner.close();
 
         // Condition to check if user is granted access 
         if (userName == staticUsername && userPassword == staticPassword) 

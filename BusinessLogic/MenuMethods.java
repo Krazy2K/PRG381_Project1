@@ -18,9 +18,9 @@ public class MenuMethods {
 
     public void numbAdultsKids(){
         System.out.print("enter the amount of Adults attending the event: ");
-        String adultCount = scan.next();
+        int adultCount = scan.nextInt();
         System.out.print("enter the amount of Kids attending the event: ");
-        String kidCount = scan.next();
+        int kidCount = scan.nextInt();
 
         evnDets.setNumberOfAdults(adultCount);
         evnDets.setNumberOfKids(kidCount);

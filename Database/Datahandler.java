@@ -15,7 +15,7 @@ public class Datahandler {
                 + "user=sa;"+"password=1234;" + "trustServerCertificate=false;" + "loginTimeout=30;";   
 
     
-    static void UpdateDB(int BookingNumber, String MealTypeAdults, String MealTypeKids ) {
+    public void UpdateDB(int BookingNumber, String MealTypeAdults, String MealTypeKids ) {
         
 
         String insertSql = "UPDATE dbo.Booking_System SET MealTypeAdults = '"+MealTypeAdults+"', MealTypeKids = '"+MealTypeKids+"' WHERE BookingNumber='"+BookingNumber+"'";
@@ -44,7 +44,7 @@ public class Datahandler {
 
     }
     // add data to database method
-    static void insertDataToDB(String EventType, String EventDate, String EventTime, String VenueAddress, int NumberOfKids, int NumberOfAdults, String MealTypeAdults, String MealTypeKids, String Drinks, String Deserts, String ThemeType, String Name, String Surname, String PhoneNumber, float Cost, String EventConfirmation) {
+    public void insertDataToDB(String EventType, String EventDate, String EventTime, String VenueAddress, int NumberOfKids, int NumberOfAdults, String MealTypeAdults, String MealTypeKids, String Drinks, String Deserts, String ThemeType, String Name, String Surname, String PhoneNumber, float Cost, String EventConfirmation) {
 
         String insertSql = "INSERT INTO dbo.Booking_System(EventType, EventDate, EventTime, VenueAddress, NumberOfKids, NumberOfAdults, MealTypeAdults, MealTypeKids, Drinks, Deserts, ThemeType, Name, Surname, PhoneNumber, Cost, EventConfirmation) VALUES "
                 + "('"+EventType+"', '"+EventDate+"', '"+EventTime+"', '"+VenueAddress+"', '"+NumberOfKids+"', '"+NumberOfAdults+"', '"+MealTypeAdults+"', '"+MealTypeKids+"', '"+Drinks+"', '"+Deserts+"', '"+ThemeType+"', '"+Name+"', '"+Surname+"', '"+PhoneNumber+"', '"+Cost+"', '"+EventConfirmation+"');";
@@ -73,7 +73,7 @@ public class Datahandler {
     }
 
     //view ticket
-    static void View(int BookingNumber){
+    public void View(int BookingNumber){
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
             
@@ -91,8 +91,45 @@ public class Datahandler {
             e.printStackTrace();
         }
     }
-    public static void main(String[] args){
-        //testing that we our connection is successfull
-        insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
+    public void ViewConfirm(String evenc){
+
+        try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
+            
+            String SQL = "SELECT * FROM dbo.Booking_System WHERE EventConfirmation= '"+evenc+"'";
+            ResultSet rs = stmt.executeQuery(SQL);
+            
+
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                System.out.println(rs.getString("BookingNumber") + " " + rs.getString("EventType")+ " " + rs.getString("EventDate")+ " " + rs.getString("EventTime")+ " " + rs.getString("VenueAddress")+ " " + rs.getString("NumberOfKids")+ " " + rs.getString("NumberOfAdults")+ " " + rs.getString("Drinks")+ " " + rs.getString("Deserts")+ " " + rs.getString("ThemeType")+ " " + rs.getString("Name")+ " " + rs.getString("Surname")+ " " + rs.getString("PhoneNumber")+ " " + rs.getString("Cost")+ " " + rs.getString("EventConfirmation"));
+            }
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+    public void ViewAdmin(){
+
+        try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
+            
+            String SQL = "SELECT * FROM dbo.Booking_System";
+            ResultSet rs = stmt.executeQuery(SQL);
+            
+
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                System.out.println(rs.getString("BookingNumber") + " " + rs.getString("EventType")+ " " + rs.getString("EventDate")+ " " + rs.getString("EventTime")+ " " + rs.getString("VenueAddress")+ " " + rs.getString("NumberOfKids")+ " " + rs.getString("NumberOfAdults")+ " " + rs.getString("Drinks")+ " " + rs.getString("Deserts")+ " " + rs.getString("ThemeType")+ " " + rs.getString("Name")+ " " + rs.getString("Surname")+ " " + rs.getString("PhoneNumber")+ " " + rs.getString("Cost")+ " " + rs.getString("EventConfirmation"));
+            }
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // public static void main(String[] args){
+    //     //testing that we our connection is successfull
+    //     //insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
+    // }
 }

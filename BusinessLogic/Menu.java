@@ -27,6 +27,8 @@ class Menu{
             System.out.println("1.Sign in");
             System.out.println("2.Sign up");
             signTask = scan.nextInt();
+            
         }
+        scan.close();
     }
 }

@@ -10,23 +10,15 @@ import java.sql.Statement;
 
 
 public class Datahandler {
-
-    //Data Source=SHAMZA-BOSS\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
-    // github connection to db
-    // temporary
-    // still need to workout connection to sql
-    static String connectionUrl = "jdbc:sqlserver://localhost:1433;"+"instanceName=SQLEXPRESS;" + "databaseName=Delicious-Catering;"
-            + "user=SHAMZA-BOSS@SQLEXPRESS;" + "password=;"+ "encrypt=true;" + "trustServerCertificate=false;" + "loginTimeout=30;";
-
-         // String connectionUrl = "jdbc:sqlserver://yourserver.database.windows.net:1433;" + "database=dbo.Booking System;"
-        //         + "user=yourusername@yourserver;" + "password=yourpassword;" + "encrypt=true;"
-        //         + "trustServerCertificate=false;" + "loginTimeout=30;";   
+    //connection url
+    static String connectionUrl = "jdbc:sqlserver://\\sqlexpress.Delicious-Catering.windows.net:1433;" + "database=Delicious-Catering;"
+                + "user=sa;"+"password=1234;" + "trustServerCertificate=false;" + "loginTimeout=30;";   
 
     
     static void UpdateDB(int BookingNumber, String MealTypeAdults, String MealTypeKids ) {
         
 
-        String insertSql = "UPDATE dbo.Booking System SET MealTypeAdults = '"+MealTypeAdults+"', MealTypeKids = '"+MealTypeKids+"' WHERE BookingNumber='"+BookingNumber+"'";
+        String insertSql = "UPDATE dbo.Booking_System SET MealTypeAdults = '"+MealTypeAdults+"', MealTypeKids = '"+MealTypeKids+"' WHERE BookingNumber='"+BookingNumber+"'";
 
         ResultSet resultSet = null;
 
@@ -54,8 +46,8 @@ public class Datahandler {
     // add data to database method
     static void insertDataToDB(String EventType, String EventDate, String EventTime, String VenueAddress, int NumberOfKids, int NumberOfAdults, String MealTypeAdults, String MealTypeKids, String Drinks, String Deserts, String ThemeType, String Name, String Surname, String PhoneNumber, float Cost, String EventConfirmation) {
 
-        String insertSql = "INSERT INTO dbo.Booking System (EventType, EventDate, EventTime, VenueAddress, NumberOfKids, NumberOfAdults, MealTypeAdults, MealTypeKids, Drinks, Deserts, ThemeType, Name, Surname, PhoneNumber, Cost, EventConfirmation) VALUES "
-                + "('"+EventType+"', '"+EventDate+"', '"+EventTime+"', '"+VenueAddress+"', '"+NumberOfKids+"', '"+NumberOfAdults+"', '"+MealTypeAdults+"', '"+MealTypeKids+"', '"+Drinks+"', '"+Deserts+"', '"+ThemeType+"', '"+Name+"', '"+Surname+"', '"+PhoneNumber+"', '"+Cost+"',, '"+EventConfirmation+"');";
+        String insertSql = "INSERT INTO dbo.Booking_System(EventType, EventDate, EventTime, VenueAddress, NumberOfKids, NumberOfAdults, MealTypeAdults, MealTypeKids, Drinks, Deserts, ThemeType, Name, Surname, PhoneNumber, Cost, EventConfirmation) VALUES "
+                + "('"+EventType+"', '"+EventDate+"', '"+EventTime+"', '"+VenueAddress+"', '"+NumberOfKids+"', '"+NumberOfAdults+"', '"+MealTypeAdults+"', '"+MealTypeKids+"', '"+Drinks+"', '"+Deserts+"', '"+ThemeType+"', '"+Name+"', '"+Surname+"', '"+PhoneNumber+"', '"+Cost+"', '"+EventConfirmation+"');";
 
         ResultSet resultSet = null;
 
@@ -85,7 +77,7 @@ public class Datahandler {
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
             
-            String SQL = "SELECT * FROM dbo.Booking System WHERE BookingNumber='"+BookingNumber+"'";
+            String SQL = "SELECT * FROM dbo.Booking_System WHERE BookingNumber='"+BookingNumber+"'";
             ResultSet rs = stmt.executeQuery(SQL);
             
 
@@ -99,8 +91,8 @@ public class Datahandler {
             e.printStackTrace();
         }
     }
-    // public static void main(String[] args){
-    //     //testing that we our connection is successfull
-    //     insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
-    // }
+    public static void main(String[] args){
+        //testing that we our connection is successfull
+        insertDataToDB("wedding", "06/06/99", "12", "Home", 3, 2, "Bread", "Kids meal", "Coke", "pudding", "dark", "Admin", "Nhlabathi", "0849879510", 3000, "Yes");
+    }
 }

@@ -45,19 +45,19 @@ public class MenuMethods {
             switch(choice){
                 case 1:
                     menu.add("adult meals");
-                    evnDets.setAdultMeals(true);
+                    evnDets.setAdultMeals("Yes");
                     break;
                 case 2:
                     menu.add("kids meals");
-                    evnDets.setKidMeals(true);
+                    evnDets.setKidMeals("Yes");
                     break;
                 case 3:
                     menu.add("drinks");
-                    evnDets.setDrinks(true);
+                    evnDets.setDrinks("Yes");
                     break;
                 case 4:
                     menu.add("desserts");
-                    evnDets.setDessert(true);
+                    evnDets.setDessert("Yes");
                     break;
                 case 5:
                     break;
@@ -150,9 +150,9 @@ public class MenuMethods {
 
         switch(yesNo){
             case 1:
-                evnDets.setEventConfirmed(true);
+                evnDets.setEventConfirmed("yes");
             case 2:
-                evnDets.setEventConfirmed(false);
+                evnDets.setEventConfirmed("no");
         }
     }
 

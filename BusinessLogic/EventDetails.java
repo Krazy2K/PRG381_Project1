@@ -10,24 +10,24 @@ public class EventDetails {
     String venueAdress;
     String numberOfKids;
     String numberOfAdults;
-    boolean adultMeals;
-    boolean kidMeals;
-    boolean drinks; 
-    boolean dessert; 
+    String adultMeals;
+    String kidMeals;
+    String drinks; 
+    String dessert; 
     String themeType;
     String cusName;
     String cusSurname;
     String cusPhoneNumber;
     String cost;
-    boolean eventConfirmed;
+    String eventConfirmed;
 
     public EventDetails(){
 
     }
 
     public EventDetails(String eventType, LocalDate eventDate, LocalTime eventTime, String venueAdress, String numberOfKids,
-            String numberOfAdults, boolean adultMeals, boolean kidMeals, boolean drinks, boolean dessert, String themeType,
-            String cusName, String cusSurname, String cusPhoneNumber, String cost, boolean eventConfirmed) {
+            String numberOfAdults, String adultMeals, String kidMeals, String drinks, String dessert, String themeType,
+            String cusName, String cusSurname, String cusPhoneNumber, String cost, String eventConfirmed) {
         this.eventType = eventType;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
@@ -46,7 +46,7 @@ public class EventDetails {
         this.eventConfirmed = eventConfirmed;
     }
     public EventDetails(String eventType, LocalDate eventDate, LocalTime eventTime, String venueAdress, String numberOfKids,
-            String numberOfAdults, boolean adultMeals, boolean kidMeals, boolean drinks, boolean dessert, String themeType,
+            String numberOfAdults, String adultMeals, String kidMeals, String drinks, String dessert, String themeType,
             String cusName, String cusSurname, String cusPhoneNumber, String cost) {
         this.eventType = eventType;
         this.eventDate = eventDate;
@@ -113,35 +113,35 @@ public class EventDetails {
         this.numberOfAdults = numberOfAdults;
     }
 
-    public boolean getAdultMeals() {
+    public String getAdultMeals() {
         return adultMeals;
     }
 
-    public void setAdultMeals(boolean adultMeals) {
+    public void setAdultMeals(String adultMeals) {
         this.adultMeals = adultMeals;
     }
 
-    public boolean getKidMeals() {
+    public String getKidMeals() {
         return adultMeals;
     }
 
-    public void setKidMeals(boolean kidMeals) {
+    public void setKidMeals(String kidMeals) {
         this.kidMeals = kidMeals;
     }
 
-    public boolean getDrinks() {
+    public String getDrinks() {
         return drinks;
     }
 
-    public void setDrinks(boolean drinks) {
+    public void setDrinks(String drinks) {
         this.drinks = drinks;
     }
 
-    public boolean getDessert() {
+    public String getDessert() {
         return dessert;
     }
 
-    public void setDessert(boolean dessert) {
+    public void setDessert(String dessert) {
         this.dessert = dessert;
     }
 
@@ -185,11 +185,11 @@ public class EventDetails {
         this.cost = cost;
     }
 
-    public boolean isEventConfirmed() {
+    public String isEventConfirmed() {
         return eventConfirmed;
     }
 
-    public void setEventConfirmed(boolean eventConfirmed) {
+    public void setEventConfirmed(String eventConfirmed) {
         this.eventConfirmed = eventConfirmed;
     }
 }

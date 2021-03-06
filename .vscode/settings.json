@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Program Files\\Microsoft JDBC Driver 6.0 for SQL Server\\sqljdbc_9.2\\enu\\mssql-jdbc-9.2.0.jre15.jar",
+        "c:\\Program Files\\Microsoft JDBC Driver 6.0 for SQL Server\\sqljdbc_9.2\\enu\\mssql-jdbc-9.2.0.jre8.jar",
+        "sqljdbc42.jar",
+        "c:\\Program Files\\Microsoft JDBC Driver 6.0 for SQL Server\\sqljdbc_9.2\\enu\\mssql-jdbc-9.2.0.jre11.jar",
+        "c:\\Program Files\\Microsoft JDBC Driver 6.0 for SQL Server\\sqljdbc_6.0\\enu\\jre7\\sqljdbc41.jar"
+    ]
+}

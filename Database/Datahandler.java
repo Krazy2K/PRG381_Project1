@@ -127,6 +127,15 @@ public class Datahandler {
             e.printStackTrace();
         }
     }
+    public String viewDate(int BookingNumber) throws SQLException {
+        Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();
+        String SQL = "SELECT EventDate FROM dbo.Booking_System WHERE BookingNumber = '"+BookingNumber+"'";
+            ResultSet rs = stmt.executeQuery(SQL);
+            
+            return rs.getString("EventDate");
+    }
+
+    //add query for date
 
     // public static void main(String[] args){
     //     //testing that we our connection is successfull

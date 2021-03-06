@@ -7,14 +7,36 @@ public class costCalculator {
    public static void Calculator() 
    {
        //Using static values to calculate cost (testing purposes)
+        EventDetails even = new EventDetails();
+        float totalCosts = 0;
+        float desertCost = 20;
+        float kidMealCost = 20;
+        float drinksCost = 30;
+        float adultMealCost = 50;
 
-   float desertCost = 20;
-   float mainMealCost = 50;
-   float drinksCost = 30;
-   float starterCost = 20;
+        String drinks = even.getDrinks();
+        String dessert = even.getDessert();
+        String kidMeal = even.getKidMeals();
+        String adultMeal = even.getAdultMeals();
+        int kidCount = even.getNumberOfKids();
+        int adultCount = even.getNumberOfAdults();
 
-   float TotalCost = desertCost + mainMealCost + drinksCost + starterCost;
 
-       System.out.println(TotalCost);
+        if (drinks.equalsIgnoreCase("yes")) {
+            totalCosts+= drinksCost*(kidCount+adultCount);
+        } 
+        if (dessert.equalsIgnoreCase("yes")) {
+            totalCosts+=desertCost*(kidCount+adultCount);
+        } 
+        if (kidMeal.equalsIgnoreCase("yes")) {
+            totalCosts+=kidMealCost*kidCount;
+        } 
+        if (adultMeal.equalsIgnoreCase("yes")) {
+            totalCosts+=adultMealCost*adultCount;
+        } 
+        else {
+            
+        }
+        even.setCost(totalCosts);
    }
 }

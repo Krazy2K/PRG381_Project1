@@ -1,7 +1,8 @@
 package BusinessLogic;
 
 import UserDetails.*;
-import BusinessLogic.*;
+import Database.Datahandler;
+
 import java.util.*;
 
 public class SignInPage 
@@ -38,12 +39,17 @@ public class SignInPage
         myScanner.close();
 
         // Condition to check if user is granted access 
-        if (userName.equals(dynamicUsername) && userPassword.equals(dynamicPassword)) 
+        if (userName.equalsIgnoreCase("admin") && userPassword.equals("123456")) 
         {
+            Datahandler data = new Datahandler();
+            data.ViewAdmin();
+        } else if(userName.equals(dynamicUsername) && userPassword.equals(dynamicPassword)){
             // Call the method that displays user order and countdown
             System.out.println("Login Successful!");
+            System.out.println("please enter your order number");
+            int orderNum = myScanner.nextInt();
             countdownPage count = new countdownPage();
-
+            count.CountdownClock(orderNum);
             System.out.println(count);
         }
         else{

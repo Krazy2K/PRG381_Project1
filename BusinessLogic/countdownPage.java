@@ -1,22 +1,48 @@
 package BusinessLogic;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
+
+import Database.Datahandler;
+
 
 public class countdownPage {
 
-    public static void CountdownClock() 
+    public void CountdownClock(int orderNum) throws SQLException 
     {
+        Scanner scan = new Scanner(System.in);
+        Datahandler data = new Datahandler();
         // This countdown clock will tell users how long they have to make changes to their order.
 
-        //Setting static clock values
-        int clockValue = 15;
+        //Setting value to 15 days (number of days before event starts that user can make changes to order)
+        int numberOfDays = 15;
+        LocalDate setDate = LocalDate.parse(data.viewDate(orderNum));
 
-        if (clockValue > 15 || clockValue == 15) 
-        {
-            // Displays how much time the user has left to make adjustments
-            // Brings up a method to make adjustments to hte order
-        } 
-        else 
-        {
-            System.out.println("Time is up! Order has been confirmed.");
+        //Getting local date
+        LocalDate presentTime = LocalDate.now();
+
+        //Calling the event time from the MenuMethods file
+        long timeLeft = ChronoUnit.DAYS.between(setDate, presentTime);
+
+        if (timeLeft > numberOfDays) {
+            
+            System.out.println("You have " + timeLeft + " days left to make any changes before your order is locked in!");
+            data.View(orderNum);
+            System.out.println("would you like to make any changes?");
+            System.out.println("1.Yes \n2.No");
+            int choice = scan.nextInt();
+            if (choice == 1) {
+                changesMade change = new changesMade();
+                change.makingChanges();
+            } else {
+                System.out.println("okay then. Enjoy your day");
+            }
         }
+        else{
+            System.out.println("Sorry! Your time to make changes has run out!");
+        }
+
+        scan.close();
     }
 }

@@ -83,7 +83,7 @@ public class Datahandler {
 
             // Iterate through the data in the result set and display it.
             while (rs.next()) {
-                System.out.println(rs.getString("BookingNumber") + " " + rs.getString("EventType")+ " " + rs.getString("EventDate")+ " " + rs.getString("EventTime")+ " " + rs.getString("VenueAddress")+ " " + rs.getString("NumberOfKids")+ " " + rs.getString("NumberOfAdults")+ " " + rs.getString("Drinks")+ " " + rs.getString("Deserts")+ " " + rs.getString("ThemeType")+ " " + rs.getString("Name")+ " " + rs.getString("Surname")+ " " + rs.getString("PhoneNumber")+ " " + rs.getString("Cost")+ " " + rs.getString("EventConfirmation"));
+                System.out.println("1.BookingNumber: "+rs.getString("BookingNumber") + "\n2.Event Type: " + rs.getString("EventType")+ "\n3.Event Date " + rs.getString("EventDate")+ "\n4.EventTime: " + rs.getString("EventTime")+ "\n5.VenueAddress: " + rs.getString("VenueAddress")+ "\n6.Number of kids: " + rs.getString("NumberOfKids")+ "\n7.Number of adults: " + rs.getString("NumberOfAdults")+ "\n8.Drinks " + rs.getString("Drinks")+ "\n9.Desserts " + rs.getString("Deserts")+ "\n10.Theme: " + rs.getString("ThemeType")+ "\n11.Name " + rs.getString("Name")+ "\n12.Surame " + rs.getString("Surname")+ "\n13.Phone " + rs.getString("PhoneNumber")+ "\n14.Cost " + rs.getString("Cost")+ "\n15.Confirmed " + rs.getString("EventConfirmation"));
             }
         }
         // Handle any errors that may have occurred.

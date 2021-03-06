@@ -125,6 +125,7 @@ public class MenuMethods {
     public void eventConfirm(){
         newOrder.add(new EventDetails(evnDets.getEventType(), evnDets.getEventDate(), evnDets.getEventTime(), evnDets.getVenueAdress(), evnDets.getNumberOfKids(), evnDets.getNumberOfAdults(), evnDets.getAdultMeals(), evnDets.getKidMeals(), evnDets.getDrinks(), evnDets.getDessert(), evnDets.getThemeType(), evnDets.getCusName(), evnDets.getCusSurname(), evnDets.getCusPhoneNumber(), evnDets.getCost()));
         
+        costCalculator.Calculator();
         Iterator itr = newOrder.iterator();
         while(itr.hasNext()){
             EventDetails ev = (EventDetails)itr.next();
@@ -145,7 +146,7 @@ public class MenuMethods {
             System.out.println("Event Cost:"+ev.cost);  
         }
           
-        System.out.println("would you like to confirm your details \n1.yes \n2.no");
+        System.out.println("would you like to confirm your details now or come back later \n1.Confirm Now \n2.Confirm Later");
         int yesNo = scan.nextInt();
 
         switch(yesNo){
@@ -154,6 +155,7 @@ public class MenuMethods {
             case 2:
                 evnDets.setEventConfirmed("no");
         }
+        
     }
 
 

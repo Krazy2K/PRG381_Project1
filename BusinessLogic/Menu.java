@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 class Menu{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         
         Scanner scan = new Scanner(System.in);
@@ -14,7 +14,8 @@ class Menu{
         while(signTask!=0){
             switch(signTask){
                 case 1:
-                    System.out.println("Enter your order number");
+                    SignInPage signIn = new SignInPage();
+                    signIn.LoginDetails();
                     break;
                 case 2:
                     IntermediaryFile inFile = new IntermediaryFile();

@@ -30,8 +30,8 @@ public class SignInPage
             // Call the method that displays user order and countdown
             System.out.println("Login Successful!");
             countdownPage count = new countdownPage();
+            count.CountdownClock();
 
-            System.out.println(count);
         } 
         else 
         {

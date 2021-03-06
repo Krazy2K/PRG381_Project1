@@ -16,5 +16,9 @@ public class costCalculator {
    float TotalCost = desertCost + mainMealCost + drinksCost + starterCost;
 
        System.out.println(TotalCost);
+
+        // Calling the menuDetails method that contains what all the user wants
+       MenuMethods myMenu = new MenuMethods();
+       myMenu.menuDetails();
    }
 }

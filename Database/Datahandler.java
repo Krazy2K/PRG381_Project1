@@ -71,9 +71,14 @@ public class Datahandler {
             e.printStackTrace();
         }
     }
+//<<<<<<< HEAD
+        // This is my branc now!
+//=======
+    
 
     //view ticket
     public void View(int BookingNumber){
+//>>>>>>> master
 
         try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();) {
             

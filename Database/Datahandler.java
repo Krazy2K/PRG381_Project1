@@ -131,8 +131,13 @@ public class Datahandler {
         Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement();
         String SQL = "SELECT EventDate FROM dbo.Booking_System WHERE BookingNumber = '"+BookingNumber+"'";
             ResultSet rs = stmt.executeQuery(SQL);
+            String date = "";
+            while (rs.next()) {
+                date = rs.getString("EventDate");
+            }
             
-            return rs.getString("EventDate");
+            
+            return date;
     }
 
     //add query for date

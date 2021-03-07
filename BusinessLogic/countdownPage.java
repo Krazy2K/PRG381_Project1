@@ -13,16 +13,9 @@ public class countdownPage {
     {
         Scanner scan = new Scanner(System.in);
         Datahandler data = new Datahandler();
-        // This countdown clock will tell users how long they have to make changes to their order.
-
-        //Setting value to 15 days (number of days before event starts that user can make changes to order)
         int numberOfDays = 15;
         LocalDate setDate = LocalDate.parse(data.viewDate(orderNum));
-
-        //Getting local date
         LocalDate presentTime = LocalDate.now();
-
-        //Calling the event time from the MenuMethods file
         long timeLeft = ChronoUnit.DAYS.between(setDate, presentTime);
 
         if (timeLeft > numberOfDays) {

@@ -5,28 +5,29 @@ import java.util.Scanner;
 public class changesMade {
    public void makingChanges(){
        Scanner scan = new Scanner(System.in);
+       Updates details = new Updates();
        MenuMethods meth = new MenuMethods();
 
        System.out.println("what would you like to change: ");
-       System.out.println("1.Date\n2.Time\n3.Venue Address\n.4Number of adults and kids\n.5Confirm all\n6.Done");
+       System.out.println("1.Date\n2.Time\n3.Venue Address\n4.Number of adults and kids\n5.Confirm all\n6.Done");
        int choice = scan.nextInt();
 
        while (choice!=6) {
             switch (choice) {
                 case 1:{
-                    meth.eventDate();
+                    details.updateDate();
                 break;
                 }
                 case 2:{
-                    meth.eventTime();
+                    details.updateTime();
                 break;
                 }
                 case 3:{
-                    meth.venuAddress();
+                    details.updatevenuAddress();
                 break;
                 }
                 case 4:{
-                    meth.numbAdultsKids();
+                    details.updatenumbAdultsKids();
                 break;
                 }
                 case 5:{

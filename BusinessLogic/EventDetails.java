@@ -195,32 +195,44 @@ public class EventDetails {
         this.eventConfirmed = eventConfirmed;
     }
 
-    public void saveToDb(){
+    public void saveToDb(String eventType, LocalDate eventDate, LocalTime eventTime, String venueAdress, int numberOfKids,
+    int numberOfAdults, String adultMeals, String kidMeals, String drinks, String dessert, String themeType,
+    String cusName, String cusSurname, String cusPhoneNumber, float cost, String eventConfirmed){
         Datahandler save = new Datahandler();
         save.insertDataToDB(eventType, eventDate.toString(), eventTime.toString(), venueAdress, numberOfKids, numberOfAdults, adultMeals, kidMeals, drinks, dessert, themeType, cusName, cusSurname, cusPhoneNumber, cost, eventConfirmed);
-    }
 
+    }
     public void DisplayAll(){
         Datahandler vAll = new Datahandler();
         vAll.ViewAdmin();
     }
-    //Parameters need to be refactored to be included in get and set methods to increase security. Need different constructors
     public void DisplayTicket(int BookingNumber){
         Datahandler vtick = new Datahandler();
         vtick.View(BookingNumber);   
     }
-    //Parameters need to be refactored to be included in get and set methods to increase security. Need different constructors
     public void DisplayConfirmed(String evenc){
         Datahandler vconfirmed = new Datahandler();
         vconfirmed.ViewConfirm(evenc);
     }
-
-    //Parameters need to be refactored to be included in get and set methods to increase security. Need different constructors
     public void UpdateDB(int BookingNumber, String MealTypeAdults, String MealTypeKids){
         Datahandler update = new Datahandler();
         update.UpdateDB(BookingNumber, MealTypeAdults, MealTypeKids);
-
     }
-
+    public void UpdateDate(int BookingNumber, String NewDate){
+        Datahandler update = new Datahandler();
+        update.UpdateDate(BookingNumber, NewDate);
+    }
+    public void UpdateTime(int BookingNumber, String NewTime){
+        Datahandler update = new Datahandler();
+        update.UpdateTime(BookingNumber, NewTime);
+    }
+    public void UpdateVAddress(int BookingNumber, String NewAddress){
+        Datahandler update = new Datahandler();
+        update.UpdateVAddress(BookingNumber, NewAddress);
+    }
+    public void UpdateNofKidsAdults(int BookingNumber, String NumberOfKids, String NumberOfAdults){
+        Datahandler update = new Datahandler();
+        update.UpdateNofKidsAdults(BookingNumber, NumberOfKids, NumberOfAdults);
+    }
     
 }

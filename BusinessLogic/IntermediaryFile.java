@@ -1,9 +1,10 @@
 package BusinessLogic;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class IntermediaryFile {
-    public ArrayList<EventDetails> NewOrder(){
+    public ArrayList<EventDetails> NewOrder() throws IOException{
         ArrayList<EventDetails> newOrder = new ArrayList<>(); 
         MenuMethods menuMeth = new MenuMethods();
         EventDetails even = new EventDetails();

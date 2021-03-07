@@ -1,4 +1,5 @@
 package BusinessLogic;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class MenuMethods {
         evnDets.setEventType(eventType);
     }
 
-    public void numbAdultsKids(){
+    public void numbAdultsKids() throws IOException{
         System.out.print("enter the amount of Adults attending the event: ");
         int adultCount = scan.nextInt();
         System.out.print("enter the amount of Kids attending the event: ");
@@ -25,6 +26,7 @@ public class MenuMethods {
         evnDets.setNumberOfAdults(adultCount);
         evnDets.setNumberOfKids(kidCount);
     }
+    
 
     public void venuAddress(){
         System.out.print("enter the address number of the event: ");
@@ -53,27 +55,15 @@ public class MenuMethods {
         if(drinks==null){
             drinks="no";
         }
-        // else if(drinks!=null){
-        //     drinks="yes";
-        // }
         if(dessert==null){
             dessert="no";
         }
-        // else if(dessert!=null){
-        //     dessert="yes";
-        // }
         if(kidMeal==null){
             kidMeal="no";
         }
-        // else if(kidMeal!=null){
-        //     kidMeal="yes";
-        // }
         if(adultMeal==null){
             adultMeal="no";
         }
-        // else if(adultMeal!=null){
-        //     adultMeal="yes";
-        // }
         System.out.println(drinks);
         System.out.println(dessert);
         System.out.println(adultMeal);
@@ -137,7 +127,7 @@ public class MenuMethods {
 
     
     public void theme(){
-        System.out.println("is there a theme?");
+        System.out.println("is there a theme? \nyes \nno");
         String answer = scan.next();
         String thme = "n/a";
     
@@ -147,6 +137,9 @@ public class MenuMethods {
             thme = scan.next();
             evnDets.setThemeType(thme);
         } 
+        else if(answer.equalsIgnoreCase("no")){
+            evnDets.setThemeType(thme);
+        }
     }
 
     public void perDetails(){
@@ -175,9 +168,9 @@ public class MenuMethods {
         evnDets.setEventDate(date);
     }
     public void eventTime(){
-        System.out.print("Enter the year of the event (hh)");
+        System.out.print("Enter the Time in hours of the event (hh)");
         int hour = scan.nextInt();
-        System.out.print("Enter the month of the event (mm)");
+        System.out.print("Enter the Time in minutes of the event (mm)");
         int minute = scan.nextInt();
 
         LocalTime date = LocalTime.of(hour, minute);
@@ -189,7 +182,7 @@ public class MenuMethods {
         newOrder.add(new EventDetails(evnDets.getEventType(), evnDets.getEventDate(), evnDets.getEventTime(), evnDets.getVenueAdress(), evnDets.getNumberOfKids(), evnDets.getNumberOfAdults(), evnDets.getAdultMeals(), evnDets.getKidMeals(), evnDets.getDrinks(), evnDets.getDessert(), evnDets.getThemeType(), evnDets.getCusName(), evnDets.getCusSurname(), evnDets.getCusPhoneNumber(), evnDets.getCost()));
         
         
-        Iterator itr = newOrder.iterator();
+        Iterator<EventDetails> itr = newOrder.iterator();
         while(itr.hasNext()){
             EventDetails ev = (EventDetails)itr.next();
             System.out.println("\f confirming your details:");
@@ -208,15 +201,18 @@ public class MenuMethods {
             System.out.println("Your Phone Number:"+ev.cusPhoneNumber);  
             System.out.println("Event Cost:"+ev.cost);  
         }
+        
           
         System.out.println("would you like to confirm your details now or come back later \n1.Confirm Now \n2.Confirm Later");
         int yesNo = scan.nextInt();
-
-        switch(yesNo){
-            case 1:
-                evnDets.setEventConfirmed("yes");
-            case 2:
-                evnDets.setEventConfirmed("no");
+        EventDetails insert= new EventDetails();
+        if(yesNo==1){
+            evnDets.setEventConfirmed("yes");                
+            insert.saveToDb(evnDets.getEventType(), evnDets.getEventDate(), evnDets.getEventTime(), evnDets.getVenueAdress(), evnDets.getNumberOfKids(), evnDets.getNumberOfAdults(), evnDets.getAdultMeals(), evnDets.getKidMeals(), evnDets.getDrinks(), evnDets.getDessert(), evnDets.getThemeType(), evnDets.getCusName(), evnDets.getCusSurname(), evnDets.getCusPhoneNumber(), evnDets.getCost(), evnDets.isEventConfirmed());
+        }
+        else if(yesNo==2){
+            evnDets.setEventConfirmed("no");
+                insert.saveToDb(evnDets.getEventType(), evnDets.getEventDate(), evnDets.getEventTime(), evnDets.getVenueAdress(), evnDets.getNumberOfKids(), evnDets.getNumberOfAdults(), evnDets.getAdultMeals(), evnDets.getKidMeals(), evnDets.getDrinks(), evnDets.getDessert(), evnDets.getThemeType(), evnDets.getCusName(), evnDets.getCusSurname(), evnDets.getCusPhoneNumber(), evnDets.getCost(), evnDets.isEventConfirmed());
         }
         
     }

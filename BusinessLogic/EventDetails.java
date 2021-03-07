@@ -234,5 +234,9 @@ public class EventDetails {
         Datahandler update = new Datahandler();
         update.UpdateNofKidsAdults(BookingNumber, NumberOfKids, NumberOfAdults);
     }
-    
+    public void UpdateConfirmation(int orderNumber, String confirm){
+        Datahandler update = new Datahandler();
+        System.out.println(confirm);
+        update.UpdateConfirmation(orderNumber, confirm);
+    };    
 }

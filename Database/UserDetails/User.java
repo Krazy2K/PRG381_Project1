@@ -1,4 +1,4 @@
-package UserDetails;
+package Database.UserDetails;
 
 import java.io.Serializable;
  

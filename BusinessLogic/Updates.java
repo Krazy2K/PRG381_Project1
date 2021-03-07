@@ -59,4 +59,13 @@ public class Updates {
         details.UpdateNofKidsAdults(orderNumber, NewKids, NewAdults);
         scan.close();
     }
+    public void updateConfirm(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Order number: ");
+        int orderNumber = scan.nextInt();
+        System.out.print("State confirmation to yes or no");
+        String confirm = scan.next();
+        details.UpdateConfirmation(orderNumber, confirm);
+        scan.close();
+    }
 }

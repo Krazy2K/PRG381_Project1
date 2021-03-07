@@ -6,13 +6,12 @@ public class changesMade {
    public void makingChanges(){
        Scanner scan = new Scanner(System.in);
        Updates details = new Updates();
-       MenuMethods meth = new MenuMethods();
 
        System.out.println("what would you like to change: ");
        System.out.println("1.Date\n2.Time\n3.Venue Address\n4.Number of adults and kids\n5.Confirm all\n6.Done");
        int choice = scan.nextInt();
 
-       while (choice!=6) {
+       do{
             switch (choice) {
                 case 1:{
                     details.updateDate();
@@ -31,7 +30,7 @@ public class changesMade {
                 break;
                 }
                 case 5:{
-                    meth.eventConfirm();
+                    details.updateConfirm();
                 break;
                 }
                 default:{
@@ -40,11 +39,7 @@ public class changesMade {
                 }
                 
             } 
-            
-            System.out.println("what else would you like to change: ");
-            System.out.println("1.Date\n2.Time\n3.Venue Address\n.4Number of adults and kids\n.5Confirm all\n6.Done");
-            choice = scan.nextInt();
-       }
+       }while(choice!=6) ;
        scan.close();
    } 
 }

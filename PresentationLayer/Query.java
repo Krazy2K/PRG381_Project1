@@ -36,8 +36,7 @@ public class Query {
             System.out.println("1.Sign in");
             System.out.println("2.Create an order");
             System.out.println("3.Update an existing order");
-            signTask = scan.nextInt();
-            
+            signTask = scan.nextInt();            
         }
         scan.close();
     }    

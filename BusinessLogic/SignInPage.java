@@ -1,6 +1,6 @@
 package BusinessLogic;
 
-import UserDetails.*;
+import Database.UserDetails.*;
 import java.util.*;
 
 public class SignInPage 

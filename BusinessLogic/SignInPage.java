@@ -17,7 +17,7 @@ public class SignInPage
         do {
         Scanner myScanner = new Scanner(System.in); 
         //counter in chances remaining
-        System.out.println("You have "+b+"chances remaining.");
+        System.out.println("You have "+b+" chances remaining.");
 
         //Prompt for username input and read input
        
@@ -38,8 +38,12 @@ public class SignInPage
         // Condition to check if user is granted access 
         if (userName.equalsIgnoreCase("admin") && userPassword.equals("123456")) 
         {
-            Datahandler data = new Datahandler();
-            data.ViewAdmin();
+            //shouldnt query database directly, due to business logic 
+            // Datahandler data = new Datahandler();
+            // data.ViewAdmin();
+            EventDetails data = new EventDetails();
+            data.DisplayAll();
+
         } else if(userName.equals(dynamicUsername) && userPassword.equals(dynamicPassword)){
             // Call the method that displays user order and countdown
             System.out.println("Login Successful!");
@@ -48,17 +52,18 @@ public class SignInPage
             countdownPage count = new countdownPage();
             count.CountdownClock(orderNum);
             System.out.println(count);
+            myScanner.close();
         }
         else{
             System.out.println("Login Failed! Username or Password was incorrect!");
             //determins the value of b according to login attempts            
-            b = b-i;
+            
             // NOTE! Needs to loop back to Login input.
-            //need to test loop.
-            if(b>0){
+            //loop working properly now.
+            if(b!=0){
                 //counts number of attempts
                 i++;
-                LoginDetails();
+                b = b-1;
             }
             else{
                 //registration page

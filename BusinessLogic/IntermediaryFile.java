@@ -20,7 +20,7 @@ public class IntermediaryFile {
         menuMeth.eventConfirm();
 
         newOrder.add(new EventDetails(even.getEventType(), even.getEventDate(), even.getEventTime(), even.getVenueAdress(), even.getNumberOfKids(), even.getNumberOfAdults(), even.getAdultMeals(), even.getKidMeals(), even.getDrinks(), even.getDessert(), even.getThemeType(), even.getCusName(), even.getCusSurname(), even.getCusPhoneNumber(), even.getCost(), even.isEventConfirmed()));
-
+        even.saveToDb(even.getEventType(), even.getEventDate(), even.getEventTime(), even.getVenueAdress(), even.getNumberOfKids(), even.getNumberOfAdults(), even.getAdultMeals(), even.getKidMeals(), even.getDrinks(), even.getDessert(), even.getThemeType(), even.getCusName(), even.getCusSurname(), even.getCusPhoneNumber(), even.getCost(), even.isEventConfirmed());
 
         return newOrder;
     }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class MenuMethods {
     Scanner scan = new Scanner(System.in);
-    ArrayList<EventDetails> newOrder = new ArrayList<>();
+    
     EventDetails evnDets = new EventDetails();
     
     public void eventType(){
@@ -34,6 +34,67 @@ public class MenuMethods {
         System.out.print("enter the address suburb of the event: ");
         String AddressSuburb = scan.next();
         evnDets.setVenueAdress(AddressNumb+AddressStreet+AddressSuburb);
+    }
+
+    public void costCalculato(){
+        float totalCosts = 0;
+        float desertCost = 20;
+        float kidMealCost = 20;
+        float drinksCost = 30;
+        float adultMealCost = 50;
+
+        String drinks = evnDets.drinks;
+        String dessert = evnDets.dessert;
+        String kidMeal = evnDets.kidMeals;
+        String adultMeal = evnDets.adultMeals;
+        int kidCount = evnDets.numberOfKids;
+        int adultCount = evnDets.numberOfAdults;
+
+        if(drinks==null){
+            drinks="no";
+        }
+        // else if(drinks!=null){
+        //     drinks="yes";
+        // }
+        if(dessert==null){
+            dessert="no";
+        }
+        // else if(dessert!=null){
+        //     dessert="yes";
+        // }
+        if(kidMeal==null){
+            kidMeal="no";
+        }
+        // else if(kidMeal!=null){
+        //     kidMeal="yes";
+        // }
+        if(adultMeal==null){
+            adultMeal="no";
+        }
+        // else if(adultMeal!=null){
+        //     adultMeal="yes";
+        // }
+        System.out.println(drinks);
+        System.out.println(dessert);
+        System.out.println(adultMeal);
+        System.out.println(kidMeal);
+
+        if (drinks.equalsIgnoreCase("yes")) {
+            totalCosts+= drinksCost*(kidCount+adultCount);
+        } 
+        if (dessert.equalsIgnoreCase("yes")) {
+            totalCosts+=desertCost*(kidCount+adultCount);
+        } 
+        if (kidMeal.equalsIgnoreCase("yes")) {
+            totalCosts+=kidMealCost*kidCount;
+        } 
+        if (adultMeal.equalsIgnoreCase("yes")) {
+            totalCosts+=adultMealCost*adultCount;
+        } 
+        else {
+            
+        }
+        evnDets.setCost(totalCosts);
     }
 
     public void menuDetails(){
@@ -123,9 +184,11 @@ public class MenuMethods {
         evnDets.setEventTime(date);
     }
     public void eventConfirm(){
+        ArrayList<EventDetails> newOrder = new ArrayList<>();
+        costCalculato();
         newOrder.add(new EventDetails(evnDets.getEventType(), evnDets.getEventDate(), evnDets.getEventTime(), evnDets.getVenueAdress(), evnDets.getNumberOfKids(), evnDets.getNumberOfAdults(), evnDets.getAdultMeals(), evnDets.getKidMeals(), evnDets.getDrinks(), evnDets.getDessert(), evnDets.getThemeType(), evnDets.getCusName(), evnDets.getCusSurname(), evnDets.getCusPhoneNumber(), evnDets.getCost()));
         
-        costCalculator.Calculator();
+        
         Iterator itr = newOrder.iterator();
         while(itr.hasNext()){
             EventDetails ev = (EventDetails)itr.next();

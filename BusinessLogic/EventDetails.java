@@ -124,7 +124,7 @@ public class EventDetails {
     }
 
     public String getKidMeals() {
-        return adultMeals;
+        return kidMeals;
     }
 
     public void setKidMeals(String kidMeals) {
@@ -221,4 +221,6 @@ public class EventDetails {
         update.UpdateDB(BookingNumber, MealTypeAdults, MealTypeKids);
 
     }
+
+    
 }

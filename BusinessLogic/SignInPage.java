@@ -32,11 +32,8 @@ public class SignInPage
         RetrieveData userData = new RetrieveData();
         String dynamicUsername = userData.getUsername();
         String dynamicPassword = userData.getPassword();
-        //String staticUsername = "Kevin";
-        //String staticPassword = "Password";
             //current username = tpage
             //current password = password123
-        myScanner.close();
 
         // Condition to check if user is granted access 
         if (userName.equalsIgnoreCase("admin") && userPassword.equals("123456")) 
